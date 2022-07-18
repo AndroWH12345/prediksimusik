@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Aplikasi Prediksi Musik Genre</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-green-400
+            to-blue-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3xl font-bold mb-8">
+                Fitur Input:
+            </h1>
+            <audio id="audio" controls>
+                Your browser does not support the audio element.</audio>
+              <br />
+              <br>
+              <br>
+              <form action="{{ url_for('predict')}}" method="post"  enctype="multipart/form-data">
+                <input class="custom-file-input glow-on-hover push " id="fileupload" type="file" name="UploadedAudio" accept=".ogg,.wav,.flac"/>
+              
+                <button class="glow-on-hover"  type="submit", class="btn"> Predict </button>
+              
+                <br>
+                <br>
+               
+              
+              
+              </form>
+
+</form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+                <h1 class="text-2xl mb-8">
+                    Hasil Prediksi
+                </h1>
+                <p style="word-wrap: break-word;font-size: 30px; color:black; text-align: center; margin: 50px; font-family:poppins;  ">Prediction : {{prediction_text}}</p>
+            </div>
+            <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+
+                <img
+                    class="h-24 md:h-28"
+                    src="https://drive.google.com/thumbnail?id=1U664Ihl02fVgBVTvZ1-5kxotHDs-Uomq"
+                    alt="logo-it-itts"
+
+                />
+            </div>
+        </section>
+    </body>
+</html>
